@@ -1,1203 +1,1331 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080b14">
-  <meta name="description" content="PixelCore — tecnologia, games e inovação em um só lugar.">
-  <title>PixelCore | Tecnologia e Games</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #080b14;
-      --bg2: #0d1220;
-      --card: #111827;
-      --card2: #151e30;
-      --gold: #e6b84b;
-      --gold2: #ffd978;
-      --text: #f4f6fa;
-      --muted: #a4adbd;
-      --border: rgba(230,184,75,.19);
-      --shadow: 0 15px 40px rgba(0,0,0,.3);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, select {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(1160px, 92%);
-      margin: auto;
-    }
-
-    .top-line {
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(8,11,20,.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: var(--gold);
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: white;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-
-    nav a {
-      font-size: 13px;
-      color: var(--muted);
-      transition: .2s;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    .nav-button {
-      padding: 10px 17px;
-      border: 1px solid var(--gold);
-      border-radius: 7px;
-      color: var(--gold);
-    }
-
-    .hero {
-      min-height: 540px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 78% 45%, rgba(230,184,75,.17), transparent 32%),
-        linear-gradient(110deg, #080b14 15%, #111827 100%);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero::before {
-      content: "PC";
-      position: absolute;
-      right: 7%;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(150px, 29vw, 340px);
-      font-weight: 800;
-      color: rgba(230,184,75,.055);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
-      padding: 80px 0;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(36px, 6vw, 66px);
-      line-height: 1.13;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 span {
-      color: var(--gold);
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 550px;
-      margin-bottom: 30px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 22px;
-      border-radius: 7px;
-      font-weight: 700;
-      font-size: 13px;
-      transition: .2s;
-      border: 1px solid var(--gold);
-    }
-
-    .button-primary {
-      background: var(--gold);
-      color: #111;
-    }
-
-    .button-primary:hover {
-      background: var(--gold2);
-      transform: translateY(-2px);
-    }
-
-    .button-outline {
-      color: var(--gold);
-      margin-left: 10px;
-    }
-
-    .button-outline:hover {
-      background: rgba(230,184,75,.1);
-    }
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 42px;
-    }
-
-    .section-heading .eyebrow {
-      margin-bottom: 9px;
-    }
-
-    .section-heading h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(25px, 4vw, 36px);
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      margin-top: 12px;
-      font-size: 14px;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .category-card {
-      min-height: 175px;
-      background: linear-gradient(140deg, var(--card2), var(--card));
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 27px;
-      transition: .25s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .category-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold);
-    }
-
-    .category-icon {
-      font-size: 30px;
-      margin-bottom: 13px;
-    }
-
-    .category-card h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 17px;
-      margin-bottom: 5px;
-    }
-
-    .category-card p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    #catalogo {
-      background: #0b101c;
-    }
-
-    .catalog-tools {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .catalog-tools input,
-    .catalog-tools select {
-      width: 100%;
-      min-width: 0;
-      padding: 13px 14px;
-      background: var(--card);
-      color: white;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      outline: none;
-    }
-
-    .catalog-tools input:focus,
-    .catalog-tools select:focus {
-      border-color: var(--gold);
-    }
-
-    .catalog-tools select option {
-      background: var(--card);
-    }
-
-    .catalog-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin: 15px 0 24px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .clear-filters {
-      color: var(--gold);
-      background: none;
-      border: none;
-      font-size: 12px;
-      text-decoration: underline;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .product-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: .25s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold);
-      box-shadow: var(--shadow);
-    }
-
-    .product-image {
-      height: 225px;
-      background: #f2f3f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: transform .3s;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.045);
-    }
-
-    .product-image .image-fallback {
-      display: none;
-      color: #242a35;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 15px;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .product-content {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .product-category {
-      color: var(--gold);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .product-content h3 {
-      font-size: 16px;
-      line-height: 1.4;
-      margin-bottom: 9px;
-    }
-
-    .product-description {
-      color: var(--muted);
-      font-size: 12px;
-      min-height: 48px;
-      margin-bottom: 17px;
-    }
-
-    .product-bottom {
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .product-price {
-      color: var(--gold);
-      font-size: 19px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .product-link {
-      color: var(--gold);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 8px 11px;
-      font-size: 11px;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .product-link:hover {
-      background: var(--gold);
-      color: #111;
-    }
-
-    .no-results {
-      display: none;
-      text-align: center;
-      padding: 55px 15px;
-      color: var(--muted);
-      background: var(--card);
-      border-radius: 10px;
-      border: 1px solid var(--border);
-    }
-
-    .no-results h3 {
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    .price-notice {
-      color: var(--muted);
-      text-align: center;
-      font-size: 11px;
-      margin-top: 25px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      padding: 28px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .service-card .category-icon {
-      font-size: 28px;
-    }
-
-    .service-card h3 {
-      font-size: 16px;
-      margin-bottom: 9px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .about {
-      background:
-        radial-gradient(circle at 90% 50%, rgba(230,184,75,.09), transparent 35%),
-        #0b101c;
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      align-items: center;
-      gap: 55px;
-    }
-
-    .about-text h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(25px, 4vw, 36px);
-      margin-bottom: 20px;
-    }
-
-    .about-text h2 span {
-      color: var(--gold);
-    }
-
-    .about-text p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .about-highlight {
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: 12px;
-      padding: 30px;
-    }
-
-    .about-highlight h3 {
-      color: var(--gold);
-      font-family: 'Orbitron', sans-serif;
-      margin-bottom: 15px;
-      font-size: 17px;
-    }
-
-    .about-highlight p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .contact-card {
-      padding: 30px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .contact-card h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 15px;
-    }
-
-    .contact-email {
-      color: var(--gold);
-      font-weight: 700;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-note {
-      font-size: 11px !important;
-      margin-top: 17px;
-      opacity: .75;
-    }
-
-    footer {
-      background: #06080e;
-      border-top: 1px solid var(--border);
-      padding: 35px 0;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-content p {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold);
-    }
-
-    @media (max-width: 850px) {
-      nav {
-        gap: 13px;
-      }
-
-      nav a {
-        font-size: 11px;
-      }
-
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .categories,
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-content {
-        gap: 25px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .navbar {
-        min-height: 68px;
-        flex-wrap: wrap;
-        padding: 12px 0;
-        gap: 10px;
-      }
-
-      .logo {
-        font-size: 19px;
-      }
-
-      nav {
-        width: 100%;
-        justify-content: space-between;
-        gap: 7px;
-        overflow-x: auto;
-        padding-bottom: 3px;
-      }
-
-      nav a {
-        white-space: nowrap;
-        font-size: 10px;
-      }
-
-      .nav-button {
-        padding: 6px 9px;
-      }
-
-      .hero {
-        min-height: 470px;
-      }
-
-      .hero-content {
-        padding: 65px 0;
-      }
-
-      .hero p {
-        font-size: 14px;
-      }
-
-      .button {
-        padding: 11px 14px;
-        font-size: 11px;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .categories,
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .category-card {
-        min-height: 145px;
-      }
-
-      .catalog-tools {
-        grid-template-columns: 1fr;
-      }
-
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .product-image {
-        height: 235px;
-      }
-
-      .about-content,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .catalog-info {
-        align-items: flex-start;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="PixelCore — tecnologia, games e inovação em um só lugar.">
+<title>PixelCore | Tecnologia e Games</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#080b14;
+  --bg2:#0d1220;
+  --card:#111827;
+  --card2:#151e30;
+  --gold:#e6b84b;
+  --gold2:#ffd978;
+  --text:#f4f6fa;
+  --muted:#a4adbd;
+  --border:rgba(230,184,75,.19);
+  --shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input,select {
+  font:inherit;
+}
+
+button {
+  cursor:pointer;
+}
+
+.container {
+  width:min(1160px,92%);
+  margin:auto;
+}
+
+.top-line {
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(8,11,20,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+
+.navbar {
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo {
+  font-family:'Orbitron',sans-serif;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--gold);
+  white-space:nowrap;
+}
+
+.logo span {
+  color:white;
+}
+
+nav {
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+nav a {
+  font-size:13px;
+  color:var(--muted);
+  transition:.2s;
+}
+
+nav a:hover {
+  color:var(--gold);
+}
+
+.nav-button {
+  padding:10px 17px;
+  border:1px solid var(--gold);
+  border-radius:7px;
+  color:var(--gold);
+}
+
+.hero {
+  min-height:540px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 78% 45%,rgba(230,184,75,.17),transparent 32%),
+    linear-gradient(110deg,#080b14 15%,#111827 100%);
+  border-bottom:1px solid var(--border);
+}
+
+.hero::before {
+  content:"PC";
+  position:absolute;
+  right:7%;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(150px,29vw,340px);
+  font-weight:800;
+  color:rgba(230,184,75,.055);
+  pointer-events:none;
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  max-width:680px;
+  padding:80px 0;
+}
+
+.eyebrow {
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.hero h1 {
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(36px,6vw,66px);
+  line-height:1.13;
+  margin-bottom:22px;
+}
+
+.hero h1 span {
+  color:var(--gold);
+}
+
+.hero p {
+  color:var(--muted);
+  font-size:16px;
+  max-width:550px;
+  margin-bottom:30px;
+}
+
+.button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 22px;
+  border-radius:7px;
+  font-weight:700;
+  font-size:13px;
+  transition:.2s;
+  border:1px solid var(--gold);
+}
+
+.button-primary {
+  background:var(--gold);
+  color:#111;
+}
+
+.button-primary:hover {
+  background:var(--gold2);
+  transform:translateY(-2px);
+}
+
+.button-outline {
+  color:var(--gold);
+  margin-left:10px;
+}
+
+.button-outline:hover {
+  background:rgba(230,184,75,.1);
+}
+
+section {
+  padding:85px 0;
+}
+
+.section-heading {
+  text-align:center;
+  margin-bottom:42px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom:9px;
+}
+
+.section-heading h2 {
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(25px,4vw,36px);
+}
+
+.section-heading p {
+  color:var(--muted);
+  margin-top:12px;
+  font-size:14px;
+}
+
+.categories {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.category-card {
+  min-height:175px;
+  background:linear-gradient(140deg,var(--card2),var(--card));
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:27px;
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.category-card:hover {
+  transform:translateY(-5px);
+  border-color:var(--gold);
+}
+
+.category-icon {
+  font-size:30px;
+  margin-bottom:13px;
+}
+
+.category-card h3 {
+  font-family:'Orbitron',sans-serif;
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.category-card p {
+  color:var(--muted);
+  font-size:12px;
+}
+
+#catalogo {
+  background:#0b101c;
+}
+
+.catalog-tools {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.catalog-tools input,
+.catalog-tools select {
+  width:100%;
+  min-width:0;
+  padding:13px 14px;
+  background:var(--card);
+  color:white;
+  border:1px solid var(--border);
+  border-radius:7px;
+  outline:none;
+}
+
+.catalog-tools input:focus,
+.catalog-tools select:focus {
+  border-color:var(--gold);
+}
+
+.catalog-tools select option {
+  background:var(--card);
+}
+
+.catalog-info {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin:15px 0 24px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.clear-filters {
+  color:var(--gold);
+  background:none;
+  border:none;
+  font-size:12px;
+  text-decoration:underline;
+}
+
+.products-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.product-card {
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+  overflow:hidden;
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
+
+.product-card:hover {
+  transform:translateY(-5px);
+  border-color:var(--gold);
+  box-shadow:var(--shadow);
+}
+
+.product-image {
+  height:225px;
+  background:#f2f3f5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:15px;
+  overflow:hidden;
+  position:relative;
+}
+
+.product-image img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:transform .3s;
+}
+
+.product-card:hover .product-image img {
+  transform:scale(1.045);
+}
+
+.product-image .image-fallback {
+  display:none;
+  color:#242a35;
+  font-family:'Orbitron',sans-serif;
+  font-size:15px;
+  font-weight:800;
+  text-align:center;
+}
+
+.product-content {
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.product-category {
+  color:var(--gold);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.product-content h3 {
+  font-size:16px;
+  line-height:1.4;
+  margin-bottom:9px;
+}
+
+.product-description {
+  color:var(--muted);
+  font-size:12px;
+  min-height:48px;
+  margin-bottom:17px;
+}
+
+.product-bottom {
+  margin-top:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.product-price {
+  color:var(--gold);
+  font-size:19px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.product-link {
+  color:var(--gold);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:8px 11px;
+  font-size:11px;
+  font-weight:700;
+  transition:.2s;
+  white-space:nowrap;
+}
+
+.product-link:hover {
+  background:var(--gold);
+  color:#111;
+}
+
+.no-results {
+  display:none;
+  text-align:center;
+  padding:55px 15px;
+  color:var(--muted);
+  background:var(--card);
+  border-radius:10px;
+  border:1px solid var(--border);
+}
+
+.no-results h3 {
+  color:white;
+  margin-bottom:8px;
+}
+
+.price-notice {
+  color:var(--muted);
+  text-align:center;
+  font-size:11px;
+  margin-top:25px;
+}
+
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.service-card {
+  padding:28px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+.service-card .category-icon {
+  font-size:28px;
+}
+
+.service-card h3 {
+  font-size:16px;
+  margin-bottom:9px;
+}
+
+.service-card p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.about {
+  background:
+    radial-gradient(circle at 90% 50%,rgba(230,184,75,.09),transparent 35%),
+    #0b101c;
+}
+
+.about-content {
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  align-items:center;
+  gap:55px;
+}
+
+.about-text h2 {
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(25px,4vw,36px);
+  margin-bottom:20px;
+}
+
+.about-text h2 span {
+  color:var(--gold);
+}
+
+.about-text p {
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.about-highlight {
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:12px;
+  padding:30px;
+}
+
+.about-highlight h3 {
+  color:var(--gold);
+  font-family:'Orbitron',sans-serif;
+  margin-bottom:15px;
+  font-size:17px;
+}
+
+.about-highlight p {
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.contact-card {
+  padding:30px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+}
+
+.contact-card h3 {
+  font-family:'Orbitron',sans-serif;
+  font-size:18px;
+  margin-bottom:15px;
+}
+
+.contact-card p {
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+.contact-email {
+  color:var(--gold);
+  font-weight:700;
+  overflow-wrap:anywhere;
+}
+
+.contact-note {
+  font-size:11px!important;
+  margin-top:17px;
+  opacity:.75;
+}
+
+footer {
+  background:#06080e;
+  border-top:1px solid var(--border);
+  padding:35px 0;
+}
+
+.footer-content {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.footer-content p {
+  color:var(--muted);
+  font-size:11px;
+}
+
+.footer-links {
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.footer-links a {
+  color:var(--muted);
+  font-size:11px;
+}
+
+.footer-links a:hover {
+  color:var(--gold);
+}
+
+@media(max-width:850px) {
+  nav {
+    gap:13px;
+  }
+
+  nav a {
+    font-size:11px;
+  }
+
+  .products-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .categories,
+  .services-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .about-content {
+    gap:25px;
+  }
+}
+
+@media(max-width:600px) {
+  .navbar {
+    min-height:68px;
+    flex-wrap:wrap;
+    padding:12px 0;
+    gap:10px;
+  }
+
+  .logo {
+    font-size:19px;
+  }
+
+  nav {
+    width:100%;
+    justify-content:space-between;
+    gap:7px;
+    overflow-x:auto;
+    padding-bottom:3px;
+  }
+
+  nav a {
+    white-space:nowrap;
+    font-size:10px;
+  }
+
+  .nav-button {
+    padding:6px 9px;
+  }
+
+  .hero {
+    min-height:470px;
+  }
+
+  .hero-content {
+    padding:65px 0;
+  }
+
+  .hero p {
+    font-size:14px;
+  }
+
+  .button {
+    padding:11px 14px;
+    font-size:11px;
+  }
+
+  section {
+    padding:65px 0;
+  }
+
+  .categories,
+  .services-grid {
+    grid-template-columns:1fr;
+  }
+
+  .category-card {
+    min-height:145px;
+  }
+
+  .catalog-tools {
+    grid-template-columns:1fr;
+  }
+
+  .products-grid {
+    grid-template-columns:1fr;
+  }
+
+  .product-image {
+    height:235px;
+  }
+
+  .about-content,
+  .contact-grid {
+    grid-template-columns:1fr;
+  }
+
+  .catalog-info {
+    align-items:flex-start;
+  }
+
+  .footer-content {
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="top-line"></div>
 
-  <header>
-    <div class="container navbar">
-      <a href="#inicio" class="logo">PIXEL<span>CORE</span></a>
+<div class="top-line"></div>
 
-      <nav>
-        <a href="#inicio">Início</a>
-        <a href="#categorias">Categorias</a>
-        <a href="#catalogo">Produtos</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato" class="nav-button">Contato</a>
-      </nav>
+<header>
+  <div class="container navbar">
+    <a href="#inicio" class="logo">PIXEL<span>CORE</span></a>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#catalogo">Produtos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato" class="nav-button">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Tecnologia • Games • Inovação</div>
+
+      <h1>
+        UM PIXEL<br>
+        DO <span>FUTURO.</span>
+      </h1>
+
+      <p>
+        Explore um universo de tecnologia, equipamentos e experiências.
+        Na PixelCore, inovação e desempenho se encontram em um só lugar.
+      </p>
+
+      <a href="#catalogo" class="button button-primary">
+        EXPLORAR PRODUTOS
+      </a>
+
+      <a href="#sobre" class="button button-outline">
+        CONHEÇA A PIXELCORE
+      </a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="container">
-        <div class="hero-content">
-          <div class="eyebrow">Tecnologia • Games • Inovação</div>
+<section id="categorias">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Explore o universo PixelCore</div>
+      <h2>NOSSAS CATEGORIAS</h2>
+      <p>Encontre equipamentos para diferentes necessidades e estilos.</p>
+    </div>
 
-          <h1>
-            UM PIXEL<br>
-            DO <span>FUTURO.</span>
-          </h1>
+    <div class="categories">
 
-          <p>
-            Explore um universo de tecnologia, equipamentos e experiências.
-            Na PixelCore, inovação e desempenho se encontram em um só lugar.
-          </p>
-
-          <a href="#catalogo" class="button button-primary">
-            EXPLORAR PRODUTOS
-          </a>
-
-          <a href="#sobre" class="button button-outline">
-            CONHEÇA A PIXELCORE
-          </a>
+      <a href="#catalogo" class="category-card" data-category-link="Periféricos">
+        <div>
+          <div class="category-icon">⌨️</div>
+          <h3>PERIFÉRICOS</h3>
+          <p>Teclados, mouses e headsets.</p>
         </div>
-      </div>
-    </section>
+      </a>
 
-    <section id="categorias">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Explore o universo PixelCore</div>
-          <h2>NOSSAS CATEGORIAS</h2>
-          <p>Encontre equipamentos para diferentes necessidades e estilos.</p>
+      <a href="#catalogo" class="category-card" data-category-link="Monitores">
+        <div>
+          <div class="category-icon">🖥️</div>
+          <h3>MONITORES</h3>
+          <p>Imagens, desempenho e imersão.</p>
         </div>
+      </a>
 
-        <div class="categories">
-          <a href="#catalogo" class="category-card" data-category-link="Periféricos">
-            <div>
-              <div class="category-icon">⌨️</div>
-              <h3>PERIFÉRICOS</h3>
-              <p>Teclados, mouses e headsets.</p>
-            </div>
-          </a>
-
-          <a href="#catalogo" class="category-card" data-category-link="Monitores">
-            <div>
-              <div class="category-icon">🖥️</div>
-              <h3>MONITORES</h3>
-              <p>Imagens, desempenho e imersão.</p>
-            </div>
-          </a>
-
-          <a href="#catalogo" class="category-card" data-category-link="Consoles">
-            <div>
-              <div class="category-icon">🎮</div>
-              <h3>CONSOLES</h3>
-              <p>Entretenimento e jogos.</p>
-            </div>
-          </a>
+      <a href="#catalogo" class="category-card" data-category-link="Consoles">
+        <div>
+          <div class="category-icon">🎮</div>
+          <h3>CONSOLES</h3>
+          <p>Entretenimento e jogos.</p>
         </div>
-      </div>
-    </section>
+      </a>
 
-    <section id="catalogo">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Conheça nossos destaques</div>
-          <h2>CATÁLOGO DE PRODUTOS</h2>
-          <p>Confira alguns equipamentos e produtos selecionados.</p>
+      <a href="#catalogo" class="category-card" data-category-link="Controles">
+        <div>
+          <div class="category-icon">🕹️</div>
+          <h3>CONTROLES</h3>
+          <p>Controles para diferentes plataformas.</p>
         </div>
+      </a>
 
-        <div class="catalog-tools">
-          <input
-            type="search"
-            id="searchInput"
-            placeholder="Pesquisar produto..."
-            aria-label="Pesquisar produto"
-          >
-
-          <select id="categoryFilter" aria-label="Filtrar categoria">
-            <option value="">Todas as categorias</option>
-            <option value="Periféricos">Periféricos</option>
-            <option value="Monitores">Monitores</option>
-            <option value="Consoles">Consoles</option>
-          </select>
-
-          <select id="sortFilter" aria-label="Ordenar produtos">
-            <option value="default">Ordenar por relevância</option>
-            <option value="low">Menor preço</option>
-            <option value="high">Maior preço</option>
-            <option value="name">Ordem alfabética</option>
-          </select>
+      <a href="#catalogo" class="category-card" data-category-link="PCs">
+        <div>
+          <div class="category-icon">🖥️</div>
+          <h3>PC GAMER</h3>
+          <p>Computadores montados e configurações.</p>
         </div>
+      </a>
 
-        <div class="catalog-info">
-          <span id="resultsCount">Carregando produtos...</span>
-          <button class="clear-filters" id="clearFilters">
-            Limpar filtros
-          </button>
+      <a href="#catalogo" class="category-card" data-category-link="Gift Cards">
+        <div>
+          <div class="category-icon">🎁</div>
+          <h3>GIFT CARDS</h3>
+          <p>Créditos digitais para suas plataformas.</p>
         </div>
+      </a>
 
-        <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </div>
+</section>
 
-        <div class="no-results" id="noResults">
-          <h3>Nenhum produto encontrado.</h3>
-          <p>Tente pesquisar por outro nome ou alterar os filtros.</p>
-        </div>
+<section id="catalogo">
+  <div class="container">
 
-        <p class="price-notice">
-          * Preços estimados para fins de demonstração escolar.
-          Não representam ofertas comerciais ou disponibilidade real.
+    <div class="section-heading">
+      <div class="eyebrow">Conheça nossos destaques</div>
+      <h2>CATÁLOGO DE PRODUTOS</h2>
+      <p>Confira equipamentos, acessórios e produtos selecionados.</p>
+    </div>
+
+    <div class="catalog-tools">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Pesquisar produto..."
+        aria-label="Pesquisar produto"
+      >
+
+      <select id="categoryFilter" aria-label="Filtrar categoria">
+        <option value="">Todas as categorias</option>
+        <option value="Periféricos">Periféricos</option>
+        <option value="Monitores">Monitores</option>
+        <option value="Consoles">Consoles</option>
+        <option value="Controles">Controles</option>
+        <option value="PCs">PCs</option>
+        <option value="Gift Cards">Gift Cards</option>
+      </select>
+
+      <select id="sortFilter" aria-label="Ordenar produtos">
+        <option value="default">Ordenar por relevância</option>
+        <option value="low">Menor preço</option>
+        <option value="high">Maior preço</option>
+        <option value="name">Ordem alfabética</option>
+      </select>
+    </div>
+
+    <div class="catalog-info">
+      <span id="resultsCount">Carregando produtos...</span>
+      <button class="clear-filters" id="clearFilters">
+        Limpar filtros
+      </button>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+
+    <div class="no-results" id="noResults">
+      <h3>Nenhum produto encontrado.</h3>
+      <p>Tente pesquisar por outro nome ou alterar os filtros.</p>
+    </div>
+
+    <p class="price-notice">
+      * Preços estimados para fins de demonstração escolar.
+      Não representam ofertas comerciais ou disponibilidade real.
+    </p>
+
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">Além dos produtos</div>
+      <h2>O QUE OFERECEMOS</h2>
+      <p>Uma experiência tecnológica que vai além da compra.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="category-icon">💻</div>
+        <h3>Equipamentos</h3>
+        <p>
+          Uma seleção de computadores, componentes e acessórios
+          para diferentes perfis de usuários.
         </p>
       </div>
-    </section>
 
-    <section id="servicos">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Além dos produtos</div>
-          <h2>O QUE OFERECEMOS</h2>
-          <p>Uma experiência tecnológica que vai além da compra.</p>
-        </div>
-
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="category-icon">💻</div>
-            <h3>Equipamentos</h3>
-            <p>
-              Uma seleção de computadores, componentes e acessórios
-              para diferentes perfis de usuários.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <div class="category-icon">⚙️</div>
-            <h3>Suporte tecnológico</h3>
-            <p>
-              Orientações gerais sobre equipamentos, compatibilidade
-              e escolha de produtos.
-            </p>
-          </div>
-
-          <div class="service-card">
-            <div class="category-icon">🚀</div>
-            <h3>Experiência gamer</h3>
-            <p>
-              Produtos e acessórios voltados para entretenimento,
-              jogos e desempenho.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="sobre">
-      <div class="container about-content">
-        <div class="about-text">
-          <div class="eyebrow">Nossa identidade</div>
-
-          <h2>
-            O FUTURO COMEÇA<br>
-            COM UM <span>PIXEL.</span>
-          </h2>
-
-          <p>
-            A PixelCore é uma marca conceitual criada para representar
-            um universo de tecnologia, inovação e entretenimento digital.
-          </p>
-
-          <p>
-            Nossa proposta é reunir produtos de diferentes categorias
-            em uma experiência moderna, organizada e acessível.
-          </p>
-
-          <p>
-            Acreditamos que a tecnologia não é apenas sobre equipamentos:
-            é sobre possibilidades, criatividade e novas experiências.
-          </p>
-        </div>
-
-        <div class="about-highlight">
-          <h3>PIXELCORE</h3>
-
-          <p><strong>Missão:</strong> aproximar pessoas do universo tecnológico.</p>
-
-          <p><strong>Visão:</strong> representar inovação, qualidade e evolução.</p>
-
-          <p><strong>Valores:</strong> criatividade, confiança, acessibilidade e tecnologia.</p>
-
-          <p>
-            <strong>Conceito:</strong> cada pixel representa uma possibilidade
-            de construir algo novo.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Fale com a PixelCore</div>
-          <h2>ENTRE EM CONTATO</h2>
-          <p>Estamos aqui para ajudar com suas dúvidas.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>CANAL DE ATENDIMENTO</h3>
-
-            <p>
-              Para dúvidas, informações sobre produtos ou suporte,
-              utilize nosso canal de contato demonstrativo.
-            </p>
-
-            <a
-              class="contact-email"
-              href="mailto:suporte@pixelcore.com.br"
-            >
-              suporte@pixelcore.com.br
-            </a>
-
-            <p class="contact-note">
-              Endereço fictício criado exclusivamente para a demonstração
-              escolar. Não representa um canal de atendimento monitorado.
-            </p>
-          </div>
-
-          <div class="contact-card">
-            <h3>TECNOLOGIA EM FOCO</h3>
-
-            <p>
-              A PixelCore busca apresentar informações de maneira clara,
-              organizada e acessível.
-            </p>
-
-            <p>
-              Explore nosso catálogo e conheça alguns dos produtos
-              que fazem parte do universo tecnológico.
-            </p>
-
-            <a href="#catalogo" class="button button-primary">
-              VER CATÁLOGO
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-content">
-      <div>
-        <a href="#inicio" class="logo">PIXEL<span>CORE</span></a>
-        <p>Um pixel do futuro.</p>
+      <div class="service-card">
+        <div class="category-icon">⚙️</div>
+        <h3>Suporte tecnológico</h3>
+        <p>
+          Orientações gerais sobre equipamentos, compatibilidade
+          e escolha de produtos.
+        </p>
       </div>
 
-      <div class="footer-links">
-        <a href="#inicio">Início</a>
-        <a href="#catalogo">Produtos</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
+      <div class="service-card">
+        <div class="category-icon">🚀</div>
+        <h3>Experiência gamer</h3>
+        <p>
+          Produtos e acessórios voltados para entretenimento,
+          jogos e desempenho.
+        </p>
       </div>
 
-      <p>© 2026 PixelCore. Projeto demonstrativo escolar.</p>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const products = [
-      {
-        id: 1,
-        name: "Logitech G502 X",
-        category: "Periféricos",
-        subcategory: "Mouses",
-        price: 399.90,
-        description: "Mouse gamer com fio, tecnologia LIGHTFORCE e sensor HERO 25K.",
-        image: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-corded/gallery/g502x-corded-gallery-1-white.png",
-        url: "https://www.logitechg.com/pt-br/shop/p/g502-x-wired-lightforce.910-006145"
-      },
-      {
-        id: 2,
-        name: "Logitech G203 LIGHTSYNC",
-        category: "Periféricos",
-        subcategory: "Mouses",
-        price: 139.90,
-        description: "Mouse gamer com iluminação RGB LIGHTSYNC e design compacto.",
-        image: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/2025-update/g203-mouse-top-angle-lilac-gallery-1.png",
-        url: "https://www.logitechg.com/pt-br/shop/p/g203-lightsync-rgb-gaming-mouse.910-005852"
-      },
-      {
-        id: 3,
-        name: "Logitech G213 Prodigy",
-        category: "Periféricos",
-        subcategory: "Teclados",
-        price: 329.90,
-        description: "Teclado gamer com iluminação RGB e teclas resistentes a respingos.",
-        image: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/non-braid/g213-finch/g213-gallery-1-nb.png",
-        url: "https://www.logitechg.com/pt-br/shop/p/g213-rgb-gaming-keyboard"
-      },
-      {
-        id: 4,
-        name: "Logitech G435",
-        category: "Periféricos",
-        subcategory: "Headsets",
-        price: 499.90,
-        description: "Headset gamer sem fio com conectividade LIGHTSPEED e Bluetooth.",
-        image: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g435/2025/gallery/g435-3qtr-front-left-angle-black-gallery-1.png",
-        url: "https://www.logitechg.com/pt-br/shop/p/g435-wireless-bluetooth-gaming-headset.981-001049"
-      },
-      {
-        id: 5,
-        name: "Logitech G432",
-        category: "Periféricos",
-        subcategory: "Headsets",
-        price: 299.90,
-        description: "Headset gamer com fio, áudio surround 7.1 e microfone integrado.",
-        image: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g432/2025/g432-3qtr-front-left-angle-gallery-1.png",
-        url: "https://www.logitechg.com/pt-br/shop/p/g432-7-1-surround-sound-gaming-headset"
-      },
-      {
-        id: 6,
-        name: "Samsung Odyssey G5 27”",
-        category: "Monitores",
-        subcategory: "Monitores Gamer",
-        price: 1099.90,
-        description: "Monitor gamer curvo de 27 polegadas da linha Odyssey G5.",
-        image: "https://samsungbrshop.vtexassets.com/arquivos/ids/243534-800-auto?v=638741892220470000",
-        url: "https://shop.samsung.com/br/monitor-gamer-samsung-odyssey-g5-27-polegadas/p"
-      },
-      {
-        id: 7,
-        name: "Xbox Series S 512 GB",
-        category: "Consoles",
-        subcategory: "Xbox",
-        price: 2699.90,
-        description: "Console Xbox de nova geração com armazenamento SSD de 512 GB.",
-        image: "https://cms-assets.xboxservices.com/assets/07/a9/07a93846-20c6-4ccd-9b0a-88718a99f894.png?n=389964_Hero-Gallery-0_A2_857x676.png",
-        url: "https://www.xbox.com/pt-BR/consoles/xbox-series-s"
-      }
-    ];
+<section class="about" id="sobre">
+  <div class="container about-content">
 
-    const productsGrid = document.getElementById("productsGrid");
-    const searchInput = document.getElementById("searchInput");
-    const categoryFilter = document.getElementById("categoryFilter");
-    const sortFilter = document.getElementById("sortFilter");
-    const resultsCount = document.getElementById("resultsCount");
-    const noResults = document.getElementById("noResults");
-    const clearFilters = document.getElementById("clearFilters");
+    <div class="about-text">
+      <div class="eyebrow">Nossa identidade</div>
 
-    function formatPrice(price) {
-      return price.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-      });
-    }
+      <h2>
+        O FUTURO COMEÇA<br>
+        COM UM <span>PIXEL.</span>
+      </h2>
 
-    function createProductCard(product) {
-      return `
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="${product.image}"
-              alt="${product.name}"
-              loading="lazy"
-              onerror="
-                this.style.display='none';
-                this.nextElementSibling.style.display='block';
-              "
-            >
-            <div class="image-fallback">PIXELCORE</div>
-          </div>
+      <p>
+        A PixelCore é uma marca conceitual criada para representar
+        um universo de tecnologia, inovação e entretenimento digital.
+      </p>
 
-          <div class="product-content">
-            <div class="product-category">
-              ${product.category} / ${product.subcategory}
-            </div>
+      <p>
+        Nossa proposta é reunir produtos de diferentes categorias
+        em uma experiência moderna, organizada e acessível.
+      </p>
 
-            <h3>${product.name}</h3>
+      <p>
+        Acreditamos que a tecnologia não é apenas sobre equipamentos:
+        é sobre possibilidades, criatividade e novas experiências.
+      </p>
+    </div>
 
-            <p class="product-description">
-              ${product.description}
-            </p>
+    <div class="about-highlight">
+      <h3>PIXELCORE</h3>
 
-            <div class="product-bottom">
-              <span class="product-price">
-                ${formatPrice(product.price)}
-              </span>
+      <p><strong>Missão:</strong> aproximar pessoas do universo tecnológico.</p>
+      <p><strong>Visão:</strong> representar inovação, qualidade e evolução.</p>
+      <p><strong>Valores:</strong> criatividade, confiança, acessibilidade e tecnologia.</p>
+      <p><strong>Conceito:</strong> cada pixel representa uma possibilidade de construir algo novo.</p>
+    </div>
 
-              <a
-                href="${product.url}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="product-link"
-              >
-                CONHECER
-              </a>
-            </div>
-          </div>
-        </article>
-      `;
-    }
+  </div>
+</section>
 
-    function renderProducts() {
-      const search = searchInput.value
-        .toLowerCase()
-        .trim();
+<section id="contato">
+  <div class="container">
 
-      const category = categoryFilter.value;
-      const sort = sortFilter.value;
+    <div class="section-heading">
+      <div class="eyebrow">Fale com a PixelCore</div>
+      <h2>ENTRE EM CONTATO</h2>
+      <p>Estamos aqui para ajudar com suas dúvidas.</p>
+    </div>
 
-      let filtered = products.filter(product => {
-        const matchesSearch =
-          product.name.toLowerCase().includes(search) ||
-          product.category.toLowerCase().includes(search) ||
-          product.subcategory.toLowerCase().includes(search) ||
-          product.description.toLowerCase().includes(search);
+    <div class="contact-grid">
 
-        const matchesCategory =
-          category === "" || product.category === category;
+      <div class="contact-card">
+        <h3>CANAL DE ATENDIMENTO</h3>
 
-        return matchesSearch && matchesCategory;
-      });
+        <p>
+          Para dúvidas, informações sobre produtos ou suporte,
+          utilize nosso canal de contato demonstrativo.
+        </p>
 
-      if (sort === "low") {
-        filtered.sort((a, b) => a.price - b.price);
-      }
+        <a
+          class="contact-email"
+          href="mailto:suporte@pixelcore.com.br"
+        >
+          suporte@pixelcore.com.br
+        </a>
 
-      if (sort === "high") {
-        filtered.sort((a, b) => b.price - a.price);
-      }
+        <p class="contact-note">
+          Endereço fictício criado exclusivamente para a demonstração
+          escolar. Não representa um canal de atendimento monitorado.
+        </p>
+      </div>
 
-      if (sort === "name") {
-        filtered.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
-      }
+      <div class="contact-card">
+        <h3>TECNOLOGIA EM FOCO</h3>
 
-      productsGrid.innerHTML = filtered
-        .map(createProductCard)
-        .join("");
+        <p>
+          A PixelCore busca apresentar informações de maneira clara,
+          organizada e acessível.
+        </p>
 
-      resultsCount.textContent =
-        `${filtered.length} produto(s) encontrado(s)`;
+        <p>
+          Explore nosso catálogo e conheça alguns dos produtos
+          que fazem parte do universo tecnológico.
+        </p>
 
-      noResults.style.display =
-        filtered.length === 0 ? "block" : "none";
+        <a href="#catalogo" class="button button-primary">
+          VER CATÁLOGO
+        </a>
+      </div>
 
-      productsGrid.style.display =
-        filtered.length === 0 ? "none" : "grid";
-    }
+    </div>
+  </div>
+</section>
 
-    searchInput.addEventListener("input", renderProducts);
-    categoryFilter.addEventListener("change", renderProducts);
-    sortFilter.addEventListener("change", renderProducts);
+</main>
 
-    clearFilters.addEventListener("click", () => {
-      searchInput.value = "";
-      categoryFilter.value = "";
-      sortFilter.value = "default";
-      renderProducts();
-    });
+<footer>
+  <div class="container footer-content">
 
-    document.querySelectorAll("[data-category-link]").forEach(link => {
-      link.addEventListener("click", () => {
-        categoryFilter.value = link.dataset.categoryLink;
-        searchInput.value = "";
-        sortFilter.value = "default";
-        renderProducts();
-      });
-    });
+    <div>
+      <a href="#inicio" class="logo">PIXEL<span>CORE</span></a>
+      <p>Um pixel do futuro.</p>
+    </div>
 
+    <div class="footer-links">
+      <a href="#inicio">Início</a>
+      <a href="#catalogo">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+    <p>© 2026 PixelCore. Projeto demonstrativo escolar.</p>
+
+  </div>
+</footer>
+
+<script>
+const products = [
+
+  // PERIFÉRICOS
+
+  {
+    id:1,
+    name:"Logitech G502 X",
+    category:"Periféricos",
+    subcategory:"Mouses",
+    price:399.90,
+    description:"Mouse gamer com fio, tecnologia LIGHTFORCE e sensor HERO 25K.",
+    image:"https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502x-corded/gallery/g502x-corded-gallery-1-white.png",
+    url:"https://www.logitechg.com/pt-br/shop/p/g502-x-wired-lightforce.910-006145"
+  },
+
+  {
+    id:2,
+    name:"Logitech G203 LIGHTSYNC",
+    category:"Periféricos",
+    subcategory:"Mouses",
+    price:139.90,
+    description:"Mouse gamer com iluminação RGB LIGHTSYNC e design compacto.",
+    image:"https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/refreshed-g203/2025-update/g203-mouse-top-angle-lilac-gallery-1.png",
+    url:"https://www.logitechg.com/pt-br/shop/p/g203-lightsync-rgb-gaming-mouse.910-005852"
+  },
+
+  {
+    id:3,
+    name:"Logitech G213 Prodigy",
+    category:"Periféricos",
+    subcategory:"Teclados",
+    price:329.90,
+    description:"Teclado gamer com iluminação RGB e teclas resistentes a respingos.",
+    image:"https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/non-braid/g213-finch/g213-gallery-1-nb.png",
+    url:"https://www.logitechg.com/pt-br/shop/p/g213-rgb-gaming-keyboard"
+  },
+
+  {
+    id:4,
+    name:"Logitech G435",
+    category:"Periféricos",
+    subcategory:"Headsets",
+    price:499.90,
+    description:"Headset gamer sem fio com conectividade LIGHTSPEED e Bluetooth.",
+    image:"https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g435/2025/gallery/g435-3qtr-front-left-angle-black-gallery-1.png",
+    url:"https://www.logitechg.com/pt-br/shop/p/g435-wireless-bluetooth-gaming-headset.981-001049"
+  },
+
+  {
+    id:5,
+    name:"Logitech G432",
+    category:"Periféricos",
+    subcategory:"Headsets",
+    price:299.90,
+    description:"Headset gamer com fio, áudio surround 7.1 e microfone integrado.",
+    image:"https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g432/2025/g432-3qtr-front-left-angle-gallery-1.png",
+    url:"https://www.logitechg.com/pt-br/shop/p/g432-7-1-surround-sound-gaming-headset"
+  },
+
+  // MONITORES
+
+  {
+    id:6,
+    name:"Samsung Odyssey G5 27”",
+    category:"Monitores",
+    subcategory:"Monitores Gamer",
+    price:1099.90,
+    description:"Monitor gamer curvo de 27 polegadas da linha Odyssey G5.",
+    image:"https://samsungbrshop.vtexassets.com/arquivos/ids/243534-800-auto?v=638741892220470000",
+    url:"https://shop.samsung.com/br/monitor-gamer-samsung-odyssey-g5-27-polegadas/p"
+  },
+
+  // CONSOLES
+
+  {
+    id:7,
+    name:"Xbox Series S 512 GB",
+    category:"Consoles",
+    subcategory:"Xbox",
+    price:2699.90,
+    description:"Console Xbox de nova geração com armazenamento SSD de 512 GB.",
+    image:"https://cms-assets.xboxservices.com/assets/07/a9/07a93846-20c6-4ccd-9b0a-88718a99f894.png?n=389964_Hero-Gallery-0_A2_857x676.png",
+    url:"https://www.xbox.com/pt-BR/consoles/xbox-series-s"
+  },
+
+  {
+    id:8,
+    name:"PlayStation 5 Slim com leitor",
+    category:"Consoles",
+    subcategory:"PlayStation",
+    price:4499.90,
+    description:"Console PlayStation 5 Slim com leitor de discos e controle DualSense.",
+    image:"https://images.tcdn.com.br/img/img_prod/872390/console_sony_playstation_5_slim_disk_1tb_dualsense_branco_2077_2_3885dece17667fa9242654774f4e313b.jpg",
+    url:"https://www.playstation.com/pt-br/ps5/buy-now/"
+  },
+
+  // CONTROLES
+
+  {
+    id:9,
+    name:"Sony DualSense Branco",
+    category:"Controles",
+    subcategory:"PlayStation 5",
+    price:399.90,
+    description:"Controle sem fio para PS5 com resposta tátil e gatilhos adaptáveis.",
+    image:"https://www.jbhifi.com.au/cdn/shop/files/835324-Product-0-I-638985985804395043.jpg?v=1763001966",
+    url:"https://www.playstation.com/pt-br/accessories/dualsense-wireless-controller/"
+  },
+
+  {
+    id:10,
+    name:"Xbox Wireless Controller Carbon Black",
+    category:"Controles",
+    subcategory:"Xbox",
+    price:399.90,
+    description:"Controle sem fio Xbox com design ergonômico e conexão compatível com consoles e PC.",
+    image:"https://cdn.awsli.com.br/2500x2500/1417/1417526/produto/83020012/65fc9989bd.jpg",
+    url:"https://www.xbox.com/pt-BR/accessories/controllers/xbox-wireless-controller"
+  },
+
+  // COMPUTADORES
+
+  {
+    id:11,
+    name:"PC Gamer Pichau Susanowo IIV",
+    category:"PCs",
+    subcategory:"PC Gamer Montado",
+    price:8499.90,
+    description:"Computador montado com Ryzen 5 9600X, RTX 5060, 16 GB DDR5 e SSD de 1 TB.",
+    image:"https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/p/c/pc-cv450-preto-gpu-m-water240-002_3_1.jpg",
+    url:"https://www.pichau.com.br/pc-gamer-pichau-susanowo-iiv-amd-ryzen-5-9600x-geforce-rtx-5060-8gb-16gb-ddr5-ssd-m-2-1tb-62527"
+  },
+
+  // GIFT CARDS
+
+  {
+    id:12,
+    name:"Gift Card PlayStation Store R$60",
+    category:"Gift Cards",
+    subcategory:"PlayStation",
+    price:60.00,
+    description:"Crédito digital de R$60 para utilizar na PlayStation Store brasileira.",
+    image:"https://production-gameflipusercontent.fingershock.com/us-east-1%3Aa8918237-53f9-44b7-bc4d-a7db769fddb1/0850c2a2-a444-48eb-8fdb-d5582a32ff8e/e053ba56-a714-4750-9787-f73fb7f96e17/640x640.webp",
+    url:"https://www.kabum.com.br/servicos-digitais/giftcard"
+  },
+
+  {
+    id:13,
+    name:"Gift Card Xbox R$25",
+    category:"Gift Cards",
+    subcategory:"Xbox",
+    price:25.00,
+    description:"Crédito digital de R$25 para utilizar na plataforma Xbox e Windows.",
+    image:"https://cdn.awsli.com.br/2500x2500/2391/2391623/produto/158954736/gift-card-xbox-25-reais-brasil---c-digo-digital-2vwsb5td4w.png",
+    url:"https://www.playce.com.br/cartao-presente-xbox-25-reais-brasil-codigo-digital"
+  }
+
+];
+
+const productsGrid = document.getElementById("productsGrid");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const sortFilter = document.getElementById("sortFilter");
+const resultsCount = document.getElementById("resultsCount");
+const noResults = document.getElementById("noResults");
+const clearFilters = document.getElementById("clearFilters");
+
+function formatPrice(price) {
+  return price.toLocaleString("pt-BR", {
+    style:"currency",
+    currency:"BRL"
+  });
+}
+
+function createProductCard(product) {
+  return `
+    <article class="product-card">
+
+      <div class="product-image">
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
+          onerror="
+            this.style.display='none';
+            this.nextElementSibling.style.display='block';
+          "
+        >
+        <div class="image-fallback">PIXELCORE</div>
+      </div>
+
+      <div class="product-content">
+
+        <div class="product-category">
+          ${product.category} / ${product.subcategory}
+        </div>
+
+        <h3>${product.name}</h3>
+
+        <p class="product-description">
+          ${product.description}
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="product-price">
+            ${formatPrice(product.price)}
+          </span>
+
+          <a
+            href="${product.url}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="product-link"
+          >
+            CONHECER
+          </a>
+
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderProducts() {
+  const search = searchInput.value.toLowerCase().trim();
+  const category = categoryFilter.value;
+  const sort = sortFilter.value;
+
+  let filtered = products.filter(product => {
+
+    const matchesSearch =
+      product.name.toLowerCase().includes(search) ||
+      product.category.toLowerCase().includes(search) ||
+      product.subcategory.toLowerCase().includes(search) ||
+      product.description.toLowerCase().includes(search);
+
+    const matchesCategory =
+      category === "" || product.category === category;
+
+    return matchesSearch && matchesCategory;
+  });
+
+  if (sort === "low") {
+    filtered.sort((a,b) => a.price - b.price);
+  }
+
+  if (sort === "high") {
+    filtered.sort((a,b) => b.price - a.price);
+  }
+
+  if (sort === "name") {
+    filtered.sort((a,b) => a.name.localeCompare(b.name,"pt-BR"));
+  }
+
+  productsGrid.innerHTML = filtered
+    .map(createProductCard)
+    .join("");
+
+  resultsCount.textContent =
+    `${filtered.length} produto(s) encontrado(s)`;
+
+  noResults.style.display =
+    filtered.length === 0 ? "block" : "none";
+
+  productsGrid.style.display =
+    filtered.length === 0 ? "none" : "grid";
+}
+
+searchInput.addEventListener("input",renderProducts);
+categoryFilter.addEventListener("change",renderProducts);
+sortFilter.addEventListener("change",renderProducts);
+
+clearFilters.addEventListener("click",() => {
+  searchInput.value = "";
+  categoryFilter.value = "";
+  sortFilter.value = "default";
+  renderProducts();
+});
+
+document.querySelectorAll("[data-category-link]").forEach(link => {
+  link.addEventListener("click",() => {
+    categoryFilter.value = link.dataset.categoryLink;
+    searchInput.value = "";
+    sortFilter.value = "default";
     renderProducts();
-  </script>
+  });
+});
+
+renderProducts();
+</script>
+
 </body>
-  </html>
+        </html>
