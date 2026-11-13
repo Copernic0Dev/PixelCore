@@ -3,853 +3,414 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080b13">
 <title>PixelCore | Um Pixel do Futuro</title>
-<meta name="description" content="PixelCore: tecnologia, games, computadores, componentes e periféricos. Um Pixel do Futuro.">
-
+<meta name="description" content="PixelCore: tecnologia, computadores, componentes, periféricos e games.">
 <style>
-:root {
-  --bg:#080b13;
-  --panel:#101827;
-  --panel2:#142033;
-  --gold:#d9ae55;
-  --blue:#102b50;
-  --white:#f5f5f5;
-  --muted:#9aa8b9;
+:root{
+  --bg:#080b13;--panel:#101827;--panel2:#152238;
+  --gold:#d9ae55;--white:#f5f6fa;--muted:#9aa8b9;
+  --border:#26364b;--blue:#17365d;
 }
-
-* {box-sizing:border-box;margin:0;padding:0}
-
-html {scroll-behavior:smooth}
-
-body {
-  background:var(--bg);
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
-  line-height:1.6;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+button{cursor:pointer}
+header{position:sticky;top:0;z-index:100;background:#070b13f5;backdrop-filter:blur(15px);border-bottom:1px solid #d9ae5530}
+.nav{max-width:1250px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{font-size:13px;color:#d2d8e2}
+nav a:hover{color:var(--gold)}
+.hero{
+ min-height:540px;display:flex;align-items:center;
+ background:linear-gradient(90deg,#070b13f5 5%,#080b13d9 55%,#080b1360),
+ url("https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=1800&auto=format&fit=crop") center/cover;
+ border-bottom:1px solid var(--border)
 }
-
-a {text-decoration:none;color:inherit}
-
-button,input {font:inherit}
-
-header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(7,11,19,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(217,174,85,.25);
+.hero-content{max-width:1250px;width:100%;margin:auto;padding:80px 25px}
+.hero small,.eyebrow{color:var(--gold);letter-spacing:3px;font-size:11px;font-weight:bold}
+.hero h1{font-size:clamp(40px,7vw,76px);line-height:1.08;max-width:750px;margin:20px 0}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:560px;color:#c1cbd8;font-size:16px}
+.btn{display:inline-block;margin-top:25px;padding:13px 25px;background:var(--gold);color:#101010;font-weight:bold;border-radius:5px;border:0;transition:.2s}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.1)}
+section{max-width:1250px;margin:auto;padding:70px 22px}
+.section-title{margin-bottom:28px}
+.section-title h2{font-size:32px;margin-top:5px}
+.section-title p{color:var(--muted);margin-top:7px}
+.categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.category{
+ min-height:155px;padding:22px;position:relative;overflow:hidden;text-align:left;
+ color:white;background:linear-gradient(135deg,#192b45,#0e1624);
+ border:1px solid var(--border);border-radius:10px;transition:.25s
 }
-
-.nav {
-  max-width:1250px;
-  margin:auto;
-  padding:17px 22px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+.category:hover,.category.active{border-color:var(--gold);transform:translateY(-4px);background:linear-gradient(135deg,#263b58,#111d2e)}
+.category .emoji{font-size:30px}
+.category h3{font-size:17px;margin-top:8px}
+.category p{font-size:12px;color:var(--muted);margin-top:4px}
+.category .arrow{position:absolute;right:18px;bottom:15px;color:var(--gold);font-size:20px}
+.catalog-tools{display:grid;grid-template-columns:1fr 190px 170px;gap:12px;margin-bottom:14px}
+.search-wrap{position:relative}
+.catalog-tools input,.catalog-tools select{
+ width:100%;min-width:0;padding:14px;background:#111d2d;color:white;
+ border:1px solid #34445a;border-radius:7px;outline:none
 }
-
-.logo {
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:2px;
+.catalog-tools input:focus,.catalog-tools select:focus{border-color:var(--gold)}
+.catalog-tools input::placeholder{color:#8795a8}
+.search-icon{position:absolute;right:14px;top:10px;color:var(--gold);font-size:20px;pointer-events:none}
+.search-help{font-size:11px;color:var(--muted);margin:8px 0 18px}
+.subcategories{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}
+.subcategory{padding:8px 14px;border:1px solid var(--border);border-radius:30px;background:#111b2a;color:#cbd4df;font-size:12px}
+.subcategory:hover,.subcategory.active{color:#111;background:var(--gold);border-color:var(--gold)}
+.results-line{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px;margin-bottom:16px}
+.clear-search{border:0;background:none;color:var(--gold)}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.product{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:.25s}
+.product:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 12px 30px #0007}
+.product-image{height:185px;background:#101827;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.product:hover .product-image img{transform:scale(1.04)}
+.image-note{position:absolute;bottom:7px;right:7px;background:#080b13d9;color:#d6dce5;padding:3px 7px;border-radius:4px;font-size:9px}
+.product-info{padding:15px}
+.tag{display:inline-block;color:var(--gold);background:#d9ae5515;border:1px solid #d9ae5540;padding:3px 8px;border-radius:4px;font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.product h3{font-size:15px;margin:10px 0 6px;line-height:1.4}
+.product p{font-size:12px;color:var(--muted);min-height:38px}
+.price{font-size:21px;font-weight:bold;color:var(--gold);margin:10px 0}
+.product-actions{display:grid;gap:7px}
+.consult,.official-link{display:block;text-align:center;padding:9px;border-radius:5px;font-size:11px;transition:.2s}
+.consult{background:#172f4c;border:1px solid #29496f}
+.consult:hover{background:var(--gold);color:#111}
+.official-link{border:1px solid #34445a;color:#cbd4df}
+.official-link:hover{border-color:var(--gold);color:var(--gold)}
+.empty{display:none;grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);background:var(--panel);border:1px solid var(--border);border-radius:8px}
+.notice{font-size:11px;color:var(--muted);margin:15px 0;padding:12px 14px;border-left:2px solid var(--gold);background:#111827}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.service{padding:24px;background:linear-gradient(145deg,#14243a,#0e1522);border:1px solid var(--border);border-radius:8px}
+.service .emoji{font-size:30px}
+.service h3{color:var(--gold);margin:12px 0}
+.service p{font-size:13px;color:var(--muted)}
+.about{max-width:none;background:linear-gradient(120deg,#101e32,#0b111c);border-block:1px solid var(--border)}
+.about-content{max-width:1200px;margin:auto}
+.about p{color:#b7c2d1;max-width:780px;margin-top:15px}
+.contact{text-align:center}
+.contact p{color:var(--muted);max-width:580px;margin:12px auto}
+.support-card{max-width:520px;margin:25px auto 0;padding:22px;background:#101827;border:1px solid var(--border);border-radius:9px}
+.support-card strong{color:var(--gold)}
+.support-card a{color:#e8d3a5;text-decoration:underline}
+footer{background:#05080e;border-top:1px solid var(--border);padding:30px 20px;text-align:center;color:var(--muted);font-size:13px}
+footer strong{color:var(--gold)}
+@media(max-width:900px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.services{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){
+ .nav{flex-direction:column;gap:12px}nav{justify-content:center;gap:13px}nav a{font-size:11px}
+ .hero{min-height:440px}.hero-content{padding:65px 20px}
+ section{padding:52px 15px}.section-title h2{font-size:27px}
+ .categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .category{padding:15px;min-height:135px}.category h3{font-size:14px}.category p{font-size:11px}
+ .catalog-tools{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .product-image{height:135px}.product-info{padding:11px}.product h3{font-size:13px}
+ .product p{font-size:11px}.price{font-size:17px}.consult,.official-link{font-size:10px}
 }
-
-.logo span {color:var(--gold)}
-
-nav {
-  display:flex;
-  gap:25px;
-  align-items:center;
-}
-
-nav a {
-  color:#d2d8e2;
-  font-size:14px;
-  transition:.25s;
-}
-
-nav a:hover {color:var(--gold)}
-
-.hero {
-  min-height:550px;
-  display:flex;
-  align-items:center;
-  background:
-    linear-gradient(90deg,rgba(5,10,20,.98),rgba(5,10,20,.75),rgba(5,10,20,.4)),
-    url("https://cdn.freshstore.cloud/article/images/20799/18724/c/understanding-gaming-hardware-for-beginners-large.webp") center/cover;
-  border-bottom:1px solid #25354c;
-}
-
-.hero-content {
-  max-width:1250px;
-  width:100%;
-  margin:auto;
-  padding:80px 25px;
-}
-
-.hero small {
-  color:var(--gold);
-  letter-spacing:4px;
-  font-weight:bold;
-}
-
-.hero h1 {
-  font-size:clamp(40px,7vw,75px);
-  line-height:1.08;
-  margin:20px 0;
-  max-width:750px;
-}
-
-.hero h1 span {color:var(--gold)}
-
-.hero p {
-  color:#c1cbd8;
-  max-width:560px;
-  font-size:17px;
-}
-
-.btn {
-  display:inline-block;
-  margin-top:30px;
-  padding:13px 25px;
-  background:var(--gold);
-  color:#101010;
-  font-weight:bold;
-  border-radius:5px;
-  transition:.25s;
-  border:0;
-  cursor:pointer;
-}
-
-.btn:hover {
-  transform:translateY(-3px);
-  box-shadow:0 8px 25px #d9ae5540;
-}
-
-section {
-  max-width:1250px;
-  margin:auto;
-  padding:75px 22px;
-}
-
-.section-title {
-  margin-bottom:30px;
-}
-
-.section-title small {
-  color:var(--gold);
-  letter-spacing:3px;
-}
-
-.section-title h2 {
-  font-size:34px;
-  margin-top:5px;
-}
-
-.section-title p {
-  color:var(--muted);
-  margin-top:7px;
-}
-
-.categories {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-  gap:15px;
-}
-
-.category {
-  background:linear-gradient(140deg,#15253b,#0d1421);
-  border:1px solid #283b53;
-  padding:23px 15px;
-  border-radius:9px;
-  text-align:center;
-  cursor:pointer;
-  transition:.25s;
-}
-
-.category:hover {
-  transform:translateY(-5px);
-  border-color:var(--gold);
-}
-
-.category .emoji {font-size:30px}
-
-.category h3 {
-  font-size:15px;
-  margin-top:10px;
-}
-
-.catalog-tools {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-bottom:25px;
-}
-
-.catalog-tools input,
-.catalog-tools select {
-  background:#111d2d;
-  color:white;
-  border:1px solid #34445a;
-  border-radius:6px;
-  padding:13px;
-  outline:none;
-}
-
-.catalog-tools input {
-  flex:1;
-  min-width:200px;
-}
-
-.catalog-tools select {min-width:190px}
-
-.catalog-tools input:focus,
-.catalog-tools select:focus {
-  border-color:var(--gold);
-}
-
-.products {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
-  gap:20px;
-}
-
-.product {
-  background:var(--panel);
-  border:1px solid #26364b;
-  border-radius:10px;
-  overflow:hidden;
-  transition:.25s;
-}
-
-.product:hover {
-  transform:translateY(-6px);
-  border-color:var(--gold);
-  box-shadow:0 12px 35px #0008;
-}
-
-.product img {
-  width:100%;
-  height:185px;
-  object-fit:contain;
-  background:#fff;
-  padding:12px;
-}
-
-.product-info {padding:17px}
-
-.tag {
-  display:inline-block;
-  color:var(--gold);
-  background:#d9ae5515;
-  border:1px solid #d9ae5540;
-  border-radius:4px;
-  padding:3px 8px;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.product h3 {
-  font-size:16px;
-  margin:12px 0 8px;
-  min-height:48px;
-}
-
-.product p {
-  font-size:12px;
-  color:var(--muted);
-  min-height:38px;
-}
-
-.price {
-  font-size:23px;
-  font-weight:bold;
-  color:var(--gold);
-  margin:12px 0;
-}
-
-.consult {
-  display:block;
-  text-align:center;
-  background:#152d4d;
-  border:1px solid #29496f;
-  padding:10px;
-  border-radius:5px;
-  font-size:13px;
-  transition:.2s;
-}
-
-.consult:hover {
-  background:var(--gold);
-  color:#111;
-}
-
-.empty {
-  color:var(--muted);
-  padding:35px;
-  text-align:center;
-  display:none;
-  grid-column:1/-1;
-}
-
-.services {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
-}
-
-.service {
-  padding:27px;
-  background:linear-gradient(145deg,#14243a,#0e1522);
-  border:1px solid #263b55;
-  border-radius:8px;
-}
-
-.service .emoji {font-size:32px}
-.service h3 {color:var(--gold);margin:12px 0}
-.service p {color:var(--muted);font-size:14px}
-
-.about {
-  background:linear-gradient(120deg,#101e32,#0b111c);
-  border-top:1px solid #26364b;
-  border-bottom:1px solid #26364b;
-  max-width:none;
-}
-
-.about-content {
-  max-width:1200px;
-  margin:auto;
-}
-
-.about p {
-  color:#b7c2d1;
-  max-width:750px;
-  margin-top:15px;
-}
-
-.contact {
-  text-align:center;
-}
-
-.contact p {
-  color:var(--muted);
-  margin:12px auto;
-  max-width:550px;
-}
-
-footer {
-  background:#05080e;
-  border-top:1px solid #28384e;
-  padding:30px 20px;
-  text-align:center;
-  color:var(--muted);
-  font-size:13px;
-}
-
-footer strong {color:var(--gold)}
-
-@media(max-width:700px) {
-  .nav {
-    flex-direction:column;
-    gap:12px;
-  }
-
-  nav {
-    gap:15px;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  nav a {font-size:12px}
-
-  .hero {min-height:460px}
-
-  .hero-content {padding:65px 22px}
-
-  .section-title h2 {font-size:27px}
-
-  section {padding:55px 17px}
-
-  .products {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:11px;
-  }
-
-  .product img {height:130px}
-
-  .product-info {padding:11px}
-
-  .product h3 {font-size:13px;min-height:55px}
-
-  .product p {font-size:11px}
-
-  .price {font-size:17px}
-
-  .consult {font-size:11px}
-
-  .categories {grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:360px) {
-  .products {grid-template-columns:1fr}
-}
+@media(max-width:350px){.products{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="nav">
-    <a href="#inicio" class="logo">PIXEL<span>CORE</span></a>
-
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#produtos">Produtos</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre nós</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </div>
+ <div class="nav">
+  <a href="#inicio" class="logo">PIXEL<span>CORE</span></a>
+  <nav>
+   <a href="#inicio">Início</a><a href="#categorias">Categorias</a>
+   <a href="#produtos">Produtos</a><a href="#servicos">Serviços</a>
+   <a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+  </nav>
+ </div>
 </header>
 
 <main>
-
 <div class="hero" id="inicio">
-  <div class="hero-content">
-    <small>TECNOLOGIA • GAMES • INOVAÇÃO</small>
-    <h1>O FUTURO COMEÇA <span>AQUI.</span></h1>
-    <p>
-      Tudo para seu universo tecnológico em um só lugar.
-      Monte seu setup, descubra novos equipamentos e
-      leve sua experiência para outro nível.
-    </p>
-    <a href="#produtos" class="btn">EXPLORAR PRODUTOS</a>
-  </div>
+ <div class="hero-content">
+  <small>TECNOLOGIA • GAMES • INOVAÇÃO</small>
+  <h1>O FUTURO COMEÇA <span>AQUI.</span></h1>
+  <p>Tudo para seu universo tecnológico em um só lugar. Monte seu setup, descubra novos equipamentos e leve sua experiência para outro nível.</p>
+  <a href="#produtos" class="btn">EXPLORAR PRODUTOS</a>
+ </div>
 </div>
 
 <section id="categorias">
-  <div class="section-title">
-    <small>EXPLORE NOSSO UNIVERSO</small>
-    <h2>Categorias</h2>
-    <p>Encontre o equipamento ideal para sua experiência.</p>
-  </div>
-
-  <div class="categories">
-    <div class="category" onclick="filterCategory('Computadores')">
-      <div class="emoji">🖥️</div>
-      <h3>Computadores e setups</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('Componentes')">
-      <div class="emoji">⚙️</div>
-      <h3>Componentes</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('Periféricos')">
-      <div class="emoji">⌨️</div>
-      <h3>Periféricos</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('Consoles')">
-      <div class="emoji">🎮</div>
-      <h3>Consoles e acessórios</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('Games')">
-      <div class="emoji">🕹️</div>
-      <h3>Games</h3>
-    </div>
-
-    <div class="category" onclick="filterCategory('Gift Cards')">
-      <div class="emoji">🎁</div>
-      <h3>Gift Cards</h3>
-    </div>
-  </div>
+ <div class="section-title">
+  <small class="eyebrow">EXPLORE NOSSO UNIVERSO</small>
+  <h2>Encontre o que procura</h2>
+  <p>Escolha uma categoria e descubra nosso catálogo.</p>
+ </div>
+ <div class="categories">
+  <button class="category" onclick="filterCategory('Computadores')"><div class="emoji">🖥️</div><h3>Computadores</h3><p>PCs, notebooks e setups</p><span class="arrow">↗</span></button>
+  <button class="category" onclick="filterCategory('Componentes')"><div class="emoji">⚙️</div><h3>Componentes</h3><p>Processadores, placas e memória</p><span class="arrow">↗</span></button>
+  <button class="category" onclick="filterCategory('Periféricos')"><div class="emoji">⌨️</div><h3>Periféricos</h3><p>Teclados, mouses, áudio e acessórios</p><span class="arrow">↗</span></button>
+  <button class="category" onclick="filterCategory('Consoles')"><div class="emoji">🎮</div><h3>Consoles</h3><p>Consoles e controles</p><span class="arrow">↗</span></button>
+  <button class="category" onclick="filterCategory('Games')"><div class="emoji">🕹️</div><h3>Games</h3><p>Jogos e entretenimento</p><span class="arrow">↗</span></button>
+  <button class="category" onclick="filterCategory('Gift Cards')"><div class="emoji">🎁</div><h3>Gift Cards</h3><p>Créditos e cartões digitais</p><span class="arrow">↗</span></button>
+ </div>
 </section>
 
 <section id="produtos">
-  <div class="section-title">
-    <small>CATÁLOGO PIXELCORE</small>
-    <h2>Nossos produtos</h2>
-    <p>Uma seleção de tecnologia para diferentes necessidades e orçamentos.</p>
+ <div class="section-title">
+  <small class="eyebrow">CATÁLOGO PIXELCORE</small>
+  <h2>Nossos produtos</h2>
+  <p>Pesquise pelo nome, marca, categoria ou tipo de produto.</p>
+ </div>
+ <div class="catalog-tools">
+  <div class="search-wrap">
+   <input id="search" type="search" list="productSuggestions" placeholder="Ex.: Logitech, teclado, RTX, headset..." autocomplete="off" oninput="renderProducts()">
+   <datalist id="productSuggestions"></datalist>
+   <span class="search-icon">⌕</span>
   </div>
-
-  <div class="catalog-tools">
-    <input id="search" type="search" placeholder="Pesquisar produtos..." oninput="renderProducts()">
-
-    <select id="categoryFilter" onchange="renderProducts()">
-      <option value="Todos">Todas as categorias</option>
-      <option value="Computadores">Computadores e setups</option>
-      <option value="Componentes">Componentes</option>
-      <option value="Periféricos">Periféricos</option>
-      <option value="Consoles">Consoles e acessórios</option>
-      <option value="Games">Games</option>
-      <option value="Gift Cards">Gift Cards</option>
-    </select>
-
-    <select id="sort" onchange="renderProducts()">
-      <option value="default">Ordenar por</option>
-      <option value="low">Menor preço</option>
-      <option value="high">Maior preço</option>
-      <option value="name">Nome</option>
-    </select>
-  </div>
-
-  <div class="products" id="productGrid"></div>
-  <div class="empty" id="empty">Nenhum produto encontrado.</div>
+  <select id="categoryFilter" onchange="categoryChanged()">
+   <option value="Todos">Todas as categorias</option>
+   <option value="Computadores">Computadores</option>
+   <option value="Componentes">Componentes</option>
+   <option value="Periféricos">Periféricos</option>
+   <option value="Consoles">Consoles</option>
+   <option value="Games">Games</option>
+   <option value="Gift Cards">Gift Cards</option>
+  </select>
+  <select id="sort" onchange="renderProducts()">
+   <option value="default">Ordenar por</option>
+   <option value="low">Menor preço</option>
+   <option value="high">Maior preço</option>
+   <option value="name">Nome A–Z</option>
+  </select>
+ </div>
+ <p class="search-help">Dica: você pode pesquisar mesmo sem acentos. Ex.: “microfone”, “mouse”, “Ryzen” ou “PlayStation”.</p>
+ <div class="subcategories" id="subcategories"></div>
+ <div class="results-line">
+  <span id="resultCount">Carregando produtos...</span>
+  <button class="clear-search" onclick="clearFilters()">Limpar filtros ×</button>
+ </div>
+ <div class="products" id="productGrid"></div>
+ <div class="empty" id="empty"><h3>Nenhum produto encontrado.</h3><p>Tente outro nome ou escolha uma categoria diferente.</p></div>
+ <div class="notice">Os preços apresentados são estimativas fictícias para fins demonstrativos e escolares. Não representam ofertas, estoque ou disponibilidade real.</div>
 </section>
 
 <section id="servicos">
-  <div class="section-title">
-    <small>ALÉM DOS PRODUTOS</small>
-    <h2>Nossos serviços</h2>
-    <p>Suporte para você aproveitar o melhor da tecnologia.</p>
-  </div>
-
-  <div class="services">
-    <div class="service">
-      <div class="emoji">🛠️</div>
-      <h3>Montagem de PCs</h3>
-      <p>Montagem de computadores personalizados de acordo com suas necessidades.</p>
-    </div>
-
-    <div class="service">
-      <div class="emoji">🧹</div>
-      <h3>Limpeza e manutenção</h3>
-      <p>Cuidados e manutenção para preservar o desempenho dos equipamentos.</p>
-    </div>
-
-    <div class="service">
-      <div class="emoji">🚀</div>
-      <h3>Upgrades</h3>
-      <p>Melhorias de hardware para acompanhar sua evolução tecnológica.</p>
-    </div>
-
-    <div class="service">
-      <div class="emoji">💻</div>
-      <h3>Configuração</h3>
-      <p>Configuração de sistemas e equipamentos para facilitar seu dia a dia.</p>
-    </div>
-  </div>
+ <div class="section-title"><small class="eyebrow">ALÉM DOS PRODUTOS</small><h2>Nossos serviços</h2><p>Soluções para seu universo tecnológico.</p></div>
+ <div class="services">
+  <div class="service"><div class="emoji">🛠️</div><h3>Montagem de PCs</h3><p>Computadores personalizados de acordo com suas necessidades.</p></div>
+  <div class="service"><div class="emoji">🧹</div><h3>Manutenção</h3><p>Cuidados e manutenção dos seus equipamentos.</p></div>
+  <div class="service"><div class="emoji">🚀</div><h3>Upgrades</h3><p>Melhorias de hardware para seu computador.</p></div>
+  <div class="service"><div class="emoji">💻</div><h3>Configuração</h3><p>Orientação para configurar seus equipamentos.</p></div>
+ </div>
 </section>
 
 <div class="about" id="sobre">
-  <section class="about-content">
-    <div class="section-title">
-      <small>QUEM SOMOS</small>
-      <h2>Sobre a PixelCore</h2>
-    </div>
-
-    <p>
-      A PixelCore nasceu da paixão por tecnologia, games e inovação.
-      Nosso objetivo é aproximar pessoas do universo tecnológico,
-      oferecendo produtos e soluções para diferentes perfis,
-      desde quem está começando até os entusiastas mais experientes.
-    </p>
-
-    <p>
-      Acreditamos que cada detalhe faz parte de uma experiência maior.
-      Por isso, buscamos unir tecnologia, qualidade e evolução.
-    </p>
-
-    <p style="color:#d9ae55;font-weight:bold;margin-top:25px">
-      PIXELCORE — UM PIXEL DO FUTURO.
-    </p>
-  </section>
+ <section class="about-content">
+  <div class="section-title"><small class="eyebrow">QUEM SOMOS</small><h2>Sobre a PixelCore</h2></div>
+  <p>A PixelCore nasceu da paixão por tecnologia, games e inovação. Nosso objetivo é aproximar pessoas do universo tecnológico, apresentando produtos e soluções para diferentes perfis.</p>
+  <p>Acreditamos que cada detalhe faz parte de uma experiência maior. Por isso, buscamos unir tecnologia, qualidade e evolução.</p>
+  <p style="color:#d9ae55;font-weight:bold;margin-top:25px">PIXELCORE — UM PIXEL DO FUTURO.</p>
+ </section>
 </div>
 
 <section class="contact" id="contato">
-  <div class="section-title">
-    <small>FALE CONOSCO</small>
-    <h2>Vamos conversar?</h2>
-  </div>
-
-  <p>
-    Tem dúvidas sobre um produto ou precisa de ajuda
-    para escolher seu próximo equipamento?
-    Entre em contato conosco.
-  </p>
-
-  <a href="mailto:contato@pixelcore.com.br" class="btn">
-    ENTRAR EM CONTATO
-  </a>
-  <p style="font-size:11px">Endereço de contato demonstrativo: configure seu e-mail comercial antes de publicar.</p>
+ <div class="section-title"><small class="eyebrow">FALE CONOSCO</small><h2>Vamos conversar?</h2></div>
+ <p>Tem dúvidas sobre algum produto ou precisa de orientação para escolher seu próximo equipamento?</p>
+ <div class="support-card">
+  <p><strong>PIXELCORE SUPORTE</strong></p>
+  <p>Canal de contato demonstrativo do projeto escolar</p>
+  <p><a href="mailto:suporte@pixelcore.com.br">suporte@pixelcore.com.br</a></p>
+  <p style="font-size:11px">Endereço fictício para apresentação. Não é um canal de atendimento monitorado.</p>
+ </div>
 </section>
-
 </main>
 
 <footer>
-  <strong>PIXELCORE</strong>
-  <p>UM PIXEL DO FUTURO.</p>
-  <p>© 2026 PixelCore. Todos os direitos reservados.</p>
+ <strong>PIXELCORE</strong>
+ <p>UM PIXEL DO FUTURO.</p>
+ <p>© 2026 PixelCore. Projeto demonstrativo escolar.</p>
 </footer>
 
 <script>
-const products = [
+const SUPPORT_EMAIL="suporte@pixelcore.com.br";
 
-{
-name:"PC Gamer Ryzen 5 5600G",
-category:"Computadores",
-price:2499,
-description:"16GB RAM • SSD 480GB • Vídeo integrado",
-image:"https://www.mouse-jp.co.jp/img/item/gtune/specialmodel/G-Tune_DG-I7G7S-FF14_RAZER_set_800x800.jpg",
-tag:"Entrada"
-},
-{
-name:"PC Gamer Ryzen 5 + RTX 4060",
-category:"Computadores",
-price:4899,
-description:"16GB RAM • SSD 1TB • RTX 4060",
-image:"https://cdn.freshstore.cloud/article/images/20799/18724/c/understanding-gaming-hardware-for-beginners-large.webp",
-tag:"Intermediário"
-},
-{
-name:"PC Gamer Ryzen 7 + RTX 4070",
-category:"Computadores",
-price:8499,
-description:"32GB RAM • SSD 1TB • Alto desempenho",
-image:"https://img.evetech.co.za/repository/ProductImages/trending-deals-image-v02.webp",
-tag:"Premium"
-},
-{
-name:"Notebook Gamer",
-category:"Computadores",
-price:4999,
-description:"Notebook para jogos e produtividade",
-image:"https://soundtech.co.za/cdn/shop/collections/30d42bc9-5bdd-4ac0-b34b-13298b33b416.png?v=1774443917",
-tag:"Notebook"
-},
-{
-name:"Processador AMD Ryzen 5 5600",
-category:"Componentes",
-price:699,
-description:"6 núcleos • 12 threads",
-image:"https://img.evetech.co.za/repository/ProductImages/trending-deals-image-v02.webp",
-tag:"Processador"
-},
-{
-name:"Processador AMD Ryzen 7",
-category:"Componentes",
-price:1399,
-description:"Desempenho para jogos e multitarefa",
-image:"https://img.evetech.co.za/repository/ProductImages/trending-deals-image-v02.webp",
-tag:"Processador"
-},
-{
-name:"Placa de vídeo RTX 4060",
-category:"Componentes",
-price:2199,
-description:"8GB de memória gráfica",
-image:"https://img.evetech.co.za/repository/ProductImages/trending-deals-image-v02.webp",
-tag:"Placa de vídeo"
-},
-{
-name:"Placa de vídeo RTX 4070",
-category:"Componentes",
-price:4299,
-description:"12GB • Alta performance",
-image:"https://img.evetech.co.za/repository/ProductImages/trending-deals-image-v02.webp",
-tag:"Premium"
-},
-{
-name:"Memória RAM DDR4 16GB",
-category:"Componentes",
-price:279,
-description:"Memória para computadores",
-image:"https://img.evetech.co.za/repository/ProductImages/trending-deals-image-v02.webp",
-tag:"Memória"
-},
-{
-name:"SSD NVMe 1TB",
-category:"Componentes",
-price:449,
-description:"Armazenamento de alta velocidade",
-image:"https://img.evetech.co.za/repository/ProductImages/trending-deals-image-v02.webp",
-tag:"Armazenamento"
-},
-{
-name:"Teclado Mecânico RGB",
-category:"Periféricos",
-price:199,
-description:"Teclas mecânicas e iluminação RGB",
-image:"https://soundtech.co.za/cdn/shop/collections/30d42bc9-5bdd-4ac0-b34b-13298b33b416.png?v=1774443917",
-tag:"Popular"
-},
-{
-name:"Mouse Gamer 7200 DPI",
-category:"Periféricos",
-price:99,
-description:"Sensor gamer e iluminação RGB",
-image:"https://soundtech.co.za/cdn/shop/collections/30d42bc9-5bdd-4ac0-b34b-13298b33b416.png?v=1774443917",
-tag:"Custo-benefício"
-},
-{
-name:"Headset Gamer Surround",
-category:"Periféricos",
-price:249,
-description:"Áudio imersivo e microfone integrado",
-image:"https://dlcdnwebimgs.asus.com/files/media/202606/077da1a8-0234-48b7-8bbd-c519b855c8a3/v1/img/features/compatibility.jpg",
-tag:"Áudio"
-},
-{
-name:"Monitor Gamer 24 144Hz",
-category:"Periféricos",
-price:799,
-description:"Full HD • Alta taxa de atualização",
-image:"https://assets.kotsovolos.gr/product/292887-b.jpg",
-tag:"Monitor"
-},
-{
-name:"Mousepad Extended RGB",
-category:"Periféricos",
-price:89,
-description:"Superfície ampla para seu setup",
-image:"https://soundtech.co.za/cdn/shop/collections/30d42bc9-5bdd-4ac0-b34b-13298b33b416.png?v=1774443917",
-tag:"Acessório"
-},
-{
-name:"PlayStation 5",
-category:"Consoles",
-price:3699,
-description:"Console de nova geração",
-image:"https://assets.kotsovolos.gr/product/292887-b.jpg",
-tag:"Console"
-},
-{
-name:"Xbox Series S",
-category:"Consoles",
-price:2399,
-description:"Console digital de nova geração",
-image:"https://soundtech.co.za/cdn/shop/collections/30d42bc9-5bdd-4ac0-b34b-13298b33b416.png?v=1774443917",
-tag:"Console"
-},
-{
-name:"Controle sem fio",
-category:"Consoles",
-price:349,
-description:"Controle para consoles e PC",
-image:"https://dlcdnwebimgs.asus.com/files/media/202606/077da1a8-0234-48b7-8bbd-c519b855c8a3/v1/img/features/compatibility.jpg",
-tag:"Acessório"
-},
-{
-name:"Headset para consoles",
-category:"Consoles",
-price:199,
-description:"Áudio e comunicação durante as partidas",
-image:"https://dlcdnwebimgs.asus.com/files/media/202606/077da1a8-0234-48b7-8bbd-c519b855c8a3/v1/img/features/compatibility.jpg",
-tag:"Acessório"
-},
-{
-name:"Game de PC",
-category:"Games",
-price:149,
-description:"Seleção de jogos para computador",
-image:"https://cdn.freshstore.cloud/article/images/20799/18724/c/understanding-gaming-hardware-for-beginners-large.webp",
-tag:"Games"
-},
-{
-name:"Game para console",
-category:"Games",
-price:249,
-description:"Jogos para consoles",
-image:"https://assets.kotsovolos.gr/product/292887-b.jpg",
-tag:"Games"
-},
-{
-name:"Gift Card R$50",
-category:"Gift Cards",
-price:50,
-description:"Crédito digital para sua plataforma",
-image:"https://cdn.freshstore.cloud/article/images/20799/18724/c/understanding-gaming-hardware-for-beginners-large.webp",
-tag:"Gift Card"
-},
-{
-name:"Gift Card R$100",
-category:"Gift Cards",
-price:100,
-description:"Crédito digital para sua plataforma",
-image:"https://cdn.freshstore.cloud/article/images/20799/18724/c/understanding-gaming-hardware-for-beginners-large.webp",
-tag:"Gift Card"
-},
-{
-name:"Gift Card R$200",
-category:"Gift Cards",
-price:200,
-description:"Crédito digital para sua plataforma",
-image:"https://cdn.freshstore.cloud/article/images/20799/18724/c/understanding-gaming-hardware-for-beginners-large.webp",
-tag:"Gift Card"
-}
+const imageBank={
+ hero:"https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=1200&auto=format&fit=crop",
+ pc:"https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=700&auto=format&fit=crop",
+ component:"https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=700&auto=format&fit=crop",
+ keyboard:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700&auto=format&fit=crop",
+ mouse:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=700&auto=format&fit=crop",
+ headset:"https://images.unsplash.com/photo-1599669454699-248893623440?w=700&auto=format&fit=crop",
+ monitor:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=700&auto=format&fit=crop",
+ microphone:"https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=700&auto=format&fit=crop",
+ webcam:"https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=700&auto=format&fit=crop",
+ console:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=700&auto=format&fit=crop",
+ controller:"https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=700&auto=format&fit=crop",
+ chair:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=700&auto=format&fit=crop",
+ accessory:"https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=700&auto=format&fit=crop",
+ gift:"https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=700&auto=format&fit=crop",
+ game:"https://images.unsplash.com/photo-1542751371-adc38448a05e?w=700&auto=format&fit=crop"
+};
 
+const official={
+ logitech:"https://www.logitechg.com/pt-br/shop",
+ mice:"https://www.logitechg.com/pt-br/shop/c/gaming-mice",
+ keyboards:"https://www.logitechg.com/pt-br/shop/c/gaming-keyboards",
+ headsets:"https://www.logitechg.com/pt-br/shop/c/gaming-headsets-audio",
+ monitors:"https://www.samsung.com/br/monitors/odyssey-gaming-monitor/",
+ amd:"https://www.amd.com/pt/products/processors/desktops/ryzen.html",
+ nvidia:"https://www.nvidia.com/pt-br/geforce/graphics-cards/",
+ playstation:"https://www.playstation.com/pt-br/ps5/",
+ xbox:"https://www.xbox.com/pt-BR/consoles",
+ steam:"https://store.steampowered.com/",
+ accessories:"https://www.logitechg.com/pt-br"
+};
+
+const products=[
+{name:"PC Gamer Ryzen 5 5600G",category:"Computadores",sub:"PC Gamer",price:2499,description:"16GB RAM • SSD 480GB • vídeo integrado",tag:"Entrada",image:"pc",source:"amd",keywords:"desktop computador"},
+{name:"PC Gamer Ryzen 5 RTX 4060",category:"Computadores",sub:"PC Gamer",price:4899,description:"16GB RAM • SSD 1TB • GeForce RTX",tag:"Intermediário",image:"pc",source:"nvidia",keywords:"desktop gamer"},
+{name:"PC Gamer Ryzen 7 RTX 4070",category:"Computadores",sub:"PC Gamer",price:8499,description:"32GB RAM • SSD 1TB • alto desempenho",tag:"Premium",image:"pc",source:"nvidia"},
+{name:"Notebook Gamer",category:"Computadores",sub:"Notebooks",price:4999,description:"Notebook para jogos e produtividade",tag:"Notebook",image:"pc",source:"nvidia"},
+{name:"Notebook para estudos",category:"Computadores",sub:"Notebooks",price:2499,description:"Para tarefas, estudos e produtividade",tag:"Estudos",image:"pc",source:"logitech"},
+{name:"Mini PC",category:"Computadores",sub:"PC compacto",price:1899,description:"Computador compacto para uso diário",tag:"Compacto",image:"pc",source:"logitech"},
+
+{name:"AMD Ryzen 5 5600",category:"Componentes",sub:"Processadores",price:699,description:"Processador para computadores desktop",tag:"AMD",image:"component",source:"amd"},
+{name:"AMD Ryzen 7 5700X",category:"Componentes",sub:"Processadores",price:1199,description:"Processador de 8 núcleos",tag:"AMD",image:"component",source:"amd"},
+{name:"AMD Ryzen 5 7600",category:"Componentes",sub:"Processadores",price:1299,description:"Processador da plataforma AM5",tag:"AMD",image:"component",source:"amd"},
+{name:"GeForce RTX 4060 8GB",category:"Componentes",sub:"Placas de vídeo",price:2199,description:"Placa de vídeo NVIDIA GeForce",tag:"NVIDIA",image:"component",source:"nvidia"},
+{name:"GeForce RTX 4070 12GB",category:"Componentes",sub:"Placas de vídeo",price:4299,description:"GPU para jogos e criação",tag:"NVIDIA",image:"component",source:"nvidia"},
+{name:"Memória RAM DDR4 16GB",category:"Componentes",sub:"Memórias",price:279,description:"Memória para computadores",tag:"Memória",image:"component",source:"logitech"},
+{name:"Memória RAM DDR5 32GB",category:"Componentes",sub:"Memórias",price:699,description:"Kit de memória DDR5",tag:"Memória",image:"component",source:"logitech"},
+{name:"SSD NVMe 1TB",category:"Componentes",sub:"Armazenamento",price:449,description:"Armazenamento de alta velocidade",tag:"SSD",image:"component",source:"logitech"},
+{name:"SSD SATA 480GB",category:"Componentes",sub:"Armazenamento",price:239,description:"Armazenamento para PC e notebook",tag:"SSD",image:"component",source:"logitech"},
+{name:"Fonte 650W 80 Plus",category:"Componentes",sub:"Fontes",price:399,description:"Fonte de alimentação para PC",tag:"Fonte",image:"component",source:"logitech"},
+{name:"Placa-mãe B550",category:"Componentes",sub:"Placas-mãe",price:699,description:"Placa-mãe para plataforma AMD",tag:"Placa-mãe",image:"component",source:"amd"},
+{name:"Water Cooler 240mm",category:"Componentes",sub:"Refrigeração",price:399,description:"Sistema de refrigeração líquida",tag:"Cooler",image:"component",source:"logitech"},
+{name:"Cooler para processador",category:"Componentes",sub:"Refrigeração",price:149,description:"Refrigeração para CPU",tag:"Cooler",image:"component",source:"logitech"},
+
+{name:"Logitech G213 Prodigy",category:"Periféricos",sub:"Teclados",price:299,description:"Teclado gamer com iluminação RGB",tag:"Teclado",image:"keyboard",source:"keyboards",keywords:"logitech teclado"},
+{name:"Teclado mecânico compacto",category:"Periféricos",sub:"Teclados",price:229,description:"Formato compacto para setup",tag:"Teclado",image:"keyboard",source:"keyboards"},
+{name:"Teclado sem fio",category:"Periféricos",sub:"Teclados",price:159,description:"Conectividade sem fio",tag:"Teclado",image:"keyboard",source:"keyboards"},
+{name:"Teclado mecânico RGB",category:"Periféricos",sub:"Teclados",price:349,description:"Switches mecânicos e iluminação",tag:"Teclado",image:"keyboard",source:"keyboards"},
+{name:"Logitech G203",category:"Periféricos",sub:"Mouses",price:179,description:"Mouse gamer com sensor preciso",tag:"Mouse",image:"mouse",source:"mice"},
+{name:"Logitech G502 X",category:"Periféricos",sub:"Mouses",price:399,description:"Mouse gamer com vários controles",tag:"Mouse",image:"mouse",source:"mice"},
+{name:"Mouse sem fio",category:"Periféricos",sub:"Mouses",price:129,description:"Mouse sem fio para uso diário",tag:"Mouse",image:"mouse",source:"mice"},
+{name:"Mouse gamer ultraleve",category:"Periféricos",sub:"Mouses",price:249,description:"Modelo gamer com sensor óptico",tag:"Mouse",image:"mouse",source:"mice"},
+{name:"Headset Logitech G435",category:"Periféricos",sub:"Headsets",price:399,description:"Headset sem fio para jogos",tag:"Headset",image:"headset",source:"headsets"},
+{name:"Headset Logitech G432",category:"Periféricos",sub:"Headsets",price:299,description:"Headset gamer com microfone",tag:"Headset",image:"headset",source:"headsets"},
+{name:"Headset gamer com fio",category:"Periféricos",sub:"Headsets",price:179,description:"Áudio para jogos e comunicação",tag:"Headset",image:"headset",source:"headsets"},
+{name:"Headset Bluetooth",category:"Periféricos",sub:"Headsets",price:249,description:"Fone sem fio para computador",tag:"Headset",image:"headset",source:"headsets"},
+{name:"Monitor Samsung Odyssey",category:"Periféricos",sub:"Monitores",price:1299,description:"Monitor gamer da linha Odyssey",tag:"Monitor",image:"monitor",source:"monitors"},
+{name:"Monitor Gamer Full HD 24",category:"Periféricos",sub:"Monitores",price:799,description:"Tela Full HD para jogos e estudos",tag:"Monitor",image:"monitor",source:"monitors"},
+{name:"Monitor Gamer QHD 27",category:"Periféricos",sub:"Monitores",price:1599,description:"Tela QHD para jogos e produtividade",tag:"Monitor",image:"monitor",source:"monitors"},
+{name:"Monitor Ultrawide",category:"Periféricos",sub:"Monitores",price:1899,description:"Tela ampla para multitarefa",tag:"Monitor",image:"monitor",source:"monitors"},
+{name:"Microfone USB",category:"Periféricos",sub:"Microfones",price:249,description:"Para chamadas, gravações e streaming",tag:"Microfone",image:"microphone",source:"logitech"},
+{name:"Microfone condensador",category:"Periféricos",sub:"Microfones",price:399,description:"Microfone para gravações",tag:"Microfone",image:"microphone",source:"logitech"},
+{name:"Webcam Full HD",category:"Periféricos",sub:"Webcams",price:199,description:"Câmera para reuniões e transmissões",tag:"Webcam",image:"webcam",source:"logitech"},
+{name:"Webcam Logitech",category:"Periféricos",sub:"Webcams",price:349,description:"Webcam para computador",tag:"Webcam",image:"webcam",source:"logitech"},
+{name:"Mousepad Extended",category:"Periféricos",sub:"Mousepads",price:89,description:"Superfície ampla para seu setup",tag:"Mousepad",image:"accessory",source:"logitech"},
+{name:"Mousepad RGB",category:"Periféricos",sub:"Mousepads",price:119,description:"Mousepad com iluminação",tag:"Mousepad",image:"accessory",source:"logitech"},
+{name:"Caixa de som para PC",category:"Periféricos",sub:"Áudio",price:179,description:"Áudio para música, jogos e vídeos",tag:"Áudio",image:"headset",source:"logitech"},
+{name:"Controle para PC",category:"Periféricos",sub:"Controles",price:249,description:"Controle para jogos no computador",tag:"Controle",image:"controller",source:"logitech"},
+{name:"Volante para simulador",category:"Periféricos",sub:"Volantes",price:1299,description:"Volante para jogos de corrida",tag:"Simulação",image:"controller",source:"logitech"},
+{name:"Cadeira gamer",category:"Periféricos",sub:"Cadeiras",price:899,description:"Cadeira para estação de jogos",tag:"Setup",image:"chair",source:"logitech"},
+{name:"Suporte para headset",category:"Periféricos",sub:"Acessórios",price:69,description:"Organização para sua mesa",tag:"Acessório",image:"accessory",source:"accessories"},
+{name:"Hub USB",category:"Periféricos",sub:"Acessórios",price:79,description:"Expansão de conexões USB",tag:"Acessório",image:"accessory",source:"accessories"},
+{name:"Suporte para monitor",category:"Periféricos",sub:"Acessórios",price:149,description:"Suporte para organização da mesa",tag:"Acessório",image:"monitor",source:"accessories"},
+{name:"Iluminação LED para setup",category:"Periféricos",sub:"Acessórios",price:99,description:"Iluminação decorativa para ambiente",tag:"Acessório",image:"accessory",source:"accessories"},
+
+{name:"PlayStation 5",category:"Consoles",sub:"PlayStation",price:4599,description:"Console da geração atual",tag:"Sony",image:"console",source:"playstation"},
+{name:"PlayStation 5 Pro",category:"Consoles",sub:"PlayStation",price:7499,description:"Console PlayStation de alto desempenho",tag:"Sony",image:"console",source:"playstation"},
+{name:"Xbox Series S",category:"Consoles",sub:"Xbox",price:2399,description:"Console Xbox totalmente digital",tag:"Microsoft",image:"console",source:"xbox"},
+{name:"Xbox Series X",category:"Consoles",sub:"Xbox",price:4499,description:"Console Xbox de alto desempenho",tag:"Microsoft",image:"console",source:"xbox"},
+{name:"Controle Xbox sem fio",category:"Consoles",sub:"Controles",price:349,description:"Controle sem fio Xbox",tag:"Microsoft",image:"controller",source:"xbox"},
+{name:"Controle DualSense",category:"Consoles",sub:"Controles",price:449,description:"Controle sem fio PlayStation",tag:"Sony",image:"controller",source:"playstation"},
+
+{name:"Jogo para PC",category:"Games",sub:"PC",price:149,description:"Título digital para computador",tag:"Games",image:"game",source:"steam"},
+{name:"Jogo para console",category:"Games",sub:"Consoles",price:249,description:"Título para videogame",tag:"Games",image:"game",source:"playstation"},
+{name:"Acessório gamer",category:"Games",sub:"Acessórios",price:99,description:"Acessório para sua experiência de jogo",tag:"Games",image:"game",source:"logitech"},
+
+{name:"Gift Card R$50",category:"Gift Cards",sub:"Créditos",price:50,description:"Cartão-presente digital demonstrativo",tag:"Gift Card",image:"gift",source:"xbox"},
+{name:"Gift Card R$100",category:"Gift Cards",sub:"Créditos",price:100,description:"Cartão-presente digital demonstrativo",tag:"Gift Card",image:"gift",source:"playstation"},
+{name:"Gift Card R$200",category:"Gift Cards",sub:"Créditos",price:200,description:"Cartão-presente digital demonstrativo",tag:"Gift Card",image:"gift",source:"steam"}
 ];
 
-const grid = document.getElementById("productGrid");
+const grid=document.getElementById("productGrid");
+const search=document.getElementById("search");
+const categoryFilter=document.getElementById("categoryFilter");
+const subcategories=document.getElementById("subcategories");
+let activeSub="Todos";
 
-function money(value) {
-  return value.toLocaleString("pt-BR",{
-    style:"currency",
-    currency:"BRL"
-  });
+function money(value){
+ return value.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 }
-
-function filterCategory(category) {
-  document.getElementById("categoryFilter").value=category;
-  document.getElementById("search").value="";
-  renderProducts();
-  document.getElementById("produtos").scrollIntoView();
+function normalize(value){
+ return String(value).toLocaleLowerCase("pt-BR")
+ .normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
 }
-
-function renderProducts() {
-
-  const query=document.getElementById("search").value.toLowerCase();
-  const category=document.getElementById("categoryFilter").value;
-  const sort=document.getElementById("sort").value;
-
-  let filtered=products.filter(p=>
-    p.name.toLowerCase().includes(query) ||
-    p.description.toLowerCase().includes(query) ||
-    p.category.toLowerCase().includes(query)
-  );
-
-  if(category!=="Todos") {
-    filtered=filtered.filter(p=>p.category===category);
-  }
-
-  if(sort==="low") filtered.sort((a,b)=>a.price-b.price);
-  if(sort==="high") filtered.sort((a,b)=>b.price-a.price);
-  if(sort==="name") filtered.sort((a,b)=>a.name.localeCompare(b.name));
-
-  grid.innerHTML=filtered.map(p=>`
-    <article class="product">
-      <img src="${p.image}" alt="${p.name}" loading="lazy"
-        onerror="this.onerror=null;this.src='https://placehold.co/500x350/101827/D9AE55?text=PIXELCORE'">
-
-      <div class="product-info">
-        <span class="tag">${p.tag}</span>
-        <h3>${p.name}</h3>
-        <p>${p.description}</p>
-        <div class="price">${money(p.price)}</div>
-        <a class="consult"
-           href="#contato"
-           onclick="document.getElementById('contactProduct').value='${p.name}'">
-           Consultar produto
-        </a>
-      </div>
-    </article>
-  `).join("");
-
-  document.getElementById("empty").style.display=
-    filtered.length ? "none":"block";
+function filterCategory(category){
+ categoryFilter.value=category;search.value="";activeSub="Todos";
+ updateSubcategories();renderProducts();
+ document.getElementById("produtos").scrollIntoView();
 }
-
+function categoryChanged(){
+ activeSub="Todos";updateSubcategories();renderProducts();
+}
+function updateSubcategories(){
+ const category=categoryFilter.value;
+ const subs=category==="Todos"?[]:[...new Set(products.filter(p=>p.category===category).map(p=>p.sub))];
+ if(!subs.length){subcategories.innerHTML="";return;}
+ subcategories.innerHTML=
+ `<button class="subcategory ${activeSub==="Todos"?"active":""}" onclick="filterSub('Todos')">Todos</button>`+
+ subs.map(s=>`<button class="subcategory ${activeSub===s?"active":""}" onclick="filterSub('${s}')">${s}</button>`).join("");
+}
+function filterSub(sub){activeSub=sub;updateSubcategories();renderProducts();}
+function clearFilters(){
+ search.value="";categoryFilter.value="Todos";document.getElementById("sort").value="default";
+ activeSub="Todos";updateSubcategories();renderProducts();
+}
+function renderProducts(){
+ const query=normalize(search.value);
+ const category=categoryFilter.value;
+ const sort=document.getElementById("sort").value;
+ let filtered=products.filter(p=>{
+  const text=normalize([p.name,p.description,p.category,p.sub,p.tag,p.keywords||""].join(" "));
+  return (!query||text.includes(query))&&(category==="Todos"||p.category===category)&&(activeSub==="Todos"||p.sub===activeSub);
+ });
+ if(sort==="low")filtered.sort((a,b)=>a.price-b.price);
+ if(sort==="high")filtered.sort((a,b)=>b.price-a.price);
+ if(sort==="name")filtered.sort((a,b)=>a.name.localeCompare(b.name,"pt-BR"));
+ document.getElementById("resultCount").textContent=filtered.length+" produto(s) encontrado(s)";
+ grid.innerHTML=filtered.map(p=>{
+  const img=imageBank[p.image]||imageBank.accessory;
+  const source=official[p.source]||official.logitech;
+  const subject=encodeURIComponent("Consulta demonstrativa: "+p.name);
+  const body=encodeURIComponent("Olá, PixelCore Suporte! Gostaria de saber mais sobre "+p.name+". Preço demonstrativo: "+money(p.price)+".");
+  const mail="mailto:"+SUPPORT_EMAIL+"?subject="+subject+"&body="+body;
+  return `<article class="product">
+   <div class="product-image">
+    <img src="${img}" alt="Imagem ilustrativa de ${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x400/101827/D9AE55?text=PixelCore'">
+    <span class="image-note">Imagem ilustrativa</span>
+   </div>
+   <div class="product-info">
+    <span class="tag">${p.tag}</span>
+    <h3>${p.name}</h3><p>${p.description}</p>
+    <div class="price">${money(p.price)}</div>
+    <div class="product-actions">
+     <a class="consult" href="${mail}">Consultar produto</a>
+     <a class="official-link" href="${source}" target="_blank" rel="noopener noreferrer">Referência oficial ↗</a>
+    </div>
+   </div>
+  </article>`;
+ }).join("");
+ document.getElementById("empty").style.display=filtered.length?"none":"block";
+}
+document.getElementById("productSuggestions").innerHTML=
+ [...new Set(products.map(p=>p.name))].map(name=>`<option value="${name}">`).join("");
+updateSubcategories();
 renderProducts();
 </script>
-
 </body>
 </html>
